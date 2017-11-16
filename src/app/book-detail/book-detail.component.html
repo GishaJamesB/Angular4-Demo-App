@@ -1,0 +1,6 @@
+<div *ngIf="book" class="book-details">
+  <h2>{{ book.name | uppercase }} Details</h2>
+  <div><span>isbn: </span>{{book.isbn}}</div>
+  <div><span>No of pages: </span>{{book.numberOfPages}}</div>
+  <div><span>Publisher: </span>{{book.publisher}}</div>
+</div>

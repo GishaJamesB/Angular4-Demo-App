@@ -1,0 +1,15 @@
+.book-details{
+  width: 25em;
+  float: left;
+  margin-left: 3em;
+}
+.book-details div{
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 5px
+}
+.book-details div span{
+  width: 10em;
+  display: block;
+  float: left;
+}
