@@ -1,4 +1,4 @@
-<h2>Books</h2>
+<h2 *ngIf="books">Books({{books.length}})</h2>
 <ul class="books">
   <li *ngFor="let book of books"
     [class.selected]="book === selectedBook"

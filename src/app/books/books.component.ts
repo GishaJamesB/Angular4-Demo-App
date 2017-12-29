@@ -11,6 +11,7 @@ import { BookService } from '../book.service';
 
 export class BooksComponent implements OnInit {
   books: Book[];
+  selectedBook: Book;
 
   constructor(private bookService: BookService) { }
 
