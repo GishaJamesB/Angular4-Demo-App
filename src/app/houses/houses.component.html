@@ -1,3 +1,8 @@
-<p>
-  houses works!
-</p>
+<h2 *ngIf="houses">Houses({{houses.length}})</h2>
+<ul class="books">
+  <li *ngFor="let house of houses"
+    [class.selected]="house === selectedHouse"
+    (click)="onSelect(house)">
+     {{house.name}}
+  </li>
+</ul>

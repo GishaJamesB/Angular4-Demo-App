@@ -5,48 +5,47 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Book } from './book';
 import { House } from './house';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+
 @Injectable()
-export class BookService {
-  private booksUrl = 'https://www.anapioficeandfire.com/api/books';
+export class HouseService {
+  private houseUrl = 'https://www.anapioficeandfire.com/api/houses';
 
   constructor(private http: HttpClient) { }
 
-  /** GET books from the server */
-  getBooks (): Observable<Book[]> {
-    return this.http.get<Book[]>(this.booksUrl)
+   /** GET houses from the server */
+  getHouses (): Observable<House[]> {
+    return this.http.get<House[]>(this.houseUrl)
       .pipe(
-        catchError(this.handleError('getBooks', []))
+        catchError(this.handleError('getHouses', []))
       );
   }
 
-  /** GET book by id. Return `undefined` when id not found */
-  getBookNo404<Data>(id: number): Observable<Book> {
-    const url = `${this.booksUrl}/${id}`;
-    return this.http.get<Book[]>(url)
+  /** GET house by id. Return `undefined` when id not found */
+  getHouseNo404<Data>(id: number): Observable<House> {
+    const url = `${this.houseUrl}/${id}`;
+    return this.http.get<House[]>(url)
       .pipe(
-        map(books => books[0]), // returns a {0|1} element array
+        map(houses => houses[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? `fetched` : `did not find`;
         }),
-        catchError(this.handleError<Book>(`getBook id=${id}`))
+        catchError(this.handleError<House>(`getHouse id=${id}`))
       );
   }
 
-  /** GET book by id. Will 404 if id not found */
-  getBook(id: number): Observable<Book> {
-    const url = `${this.booksUrl}/${id}`;
-    return this.http.get<Book>(url).pipe(
-      catchError(this.handleError<Book>(`getBook id=${id}`))
+  /** GET house by id. Will 404 if id not found */
+  getHouse(id: number): Observable<House> {
+    const url = `${this.houseUrl}/${id}`;
+    return this.http.get<House>(url).pipe(
+      catchError(this.handleError<House>(`getHouse id=${id}`))
     );
   }
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -64,6 +63,7 @@ export class BookService {
       return of(result as T);
     };
   }
+
 
 
 }
