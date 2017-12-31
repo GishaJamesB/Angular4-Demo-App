@@ -6,7 +6,7 @@ import { HouseService } from '../house.service';
 @Component({
   selector: 'app-houses',
   templateUrl: './houses.component.html',
-  styleUrls: ['./houses.component.css'],
+  styleUrls: ['../app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class HousesComponent implements OnInit {

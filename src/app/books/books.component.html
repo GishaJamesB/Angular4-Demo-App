@@ -1,5 +1,5 @@
 <h2 *ngIf="books">Books({{books.length}})</h2>
-<ul class="books">
+<ul class="list">
   <li *ngFor="let book of books"
     [class.selected]="book === selectedBook"
     (click)="onSelect(book)">
